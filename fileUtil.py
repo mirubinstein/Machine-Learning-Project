@@ -49,18 +49,3 @@ def createDataObject(fin):
     data[targetIds[person]] = dict(zip(geneTypes, indivData))
 
   return data
-
-def createControlData(data):
-  control = {}
-  for item in data:
-    if item.startswith("WGACON"):
-      control[item] = data[item]
-  return control
-
-def createDiseaseData(data):
-  disease = {}
-  for item in data:
-    if item.startswith("WGAAD"):
-      disease[item] = data[item]
-  return disease
-      
