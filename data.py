@@ -28,9 +28,29 @@ def createDiseaseData(data):
       disease[item] = data[item]
   return disease
 
+def createDataFile(data):
+    file = open('trainData/train.data', 'w')
+
+    string = ""
+    for item in data:
+        person = data[item]
+        if item.startswith("WGACON"):
+            string += "CON "
+        elif item.startswith("WGAAD"):
+            string += "AD "
+        for gene in person:
+            val = person[gene]
+            string += gene + ":" + val + " "
+        string += "\n"
+	
+    file.write(string)
+    file.close()
+
 class TrainData:
     data = createDataObject(fin)
     control = createControlData(data)
     disease = createDiseaseData(data)
     genes = getGenes(data)
     ids = getIds(data)
+
+    createDataFile(data)
