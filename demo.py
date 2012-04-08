@@ -29,6 +29,7 @@ if __name__ == '__main__':
   
   features = data.featureID
   print 'Number of features selected: ' + str(len(features)) + ' of ' + str(len(genes))
+  print features
   
   
     
